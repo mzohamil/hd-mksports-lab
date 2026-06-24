@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 杂志专题</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f2f4f6;
+      color: #1e2a3a;
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+
+    .page {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* hero */
+    .hero {
+      background: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+      padding: 3rem 2.5rem;
+      margin-bottom: 2.5rem;
+      border: 1px solid rgba(0, 0, 0, 0.03);
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, #d4dce6, #aab7c9, #d4dce6);
+      border-radius: 28px 28px 0 0;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 380;
+      letter-spacing: -0.02em;
+      color: #1c2a3a;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero h1 strong {
+      font-weight: 500;
+      color: #1f2e3f;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #536b7f;
+      border-left: 3px solid #b6c6d6;
+      padding-left: 1.2rem;
+      margin-top: 0.3rem;
+    }
+
+    /* 卡片通用 */
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2rem 2.2rem;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.02);
+      border: 1px solid #eef1f5;
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.04);
+    }
+
+    .card h2 {
+      font-size: 1.7rem;
+      font-weight: 420;
+      letter-spacing: -0.01em;
+      color: #1f2e3f;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #e9edf2;
+      padding-bottom: 0.4rem;
+    }
+
+    .card h2 small {
+      font-size: 0.9rem;
+      font-weight: 350;
+      color: #6a7f93;
+      margin-left: 0.5rem;
+    }
+
+    .card p {
+      margin-bottom: 1rem;
+      color: #2b3e51;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .card .quiet {
+      color: #5a6f84;
+      font-size: 0.95rem;
+    }
+
+    .inline-link {
+      color: #1f3a57;
+      text-decoration: none;
+      border-bottom: 1px solid #cbd6e2;
+      transition: border-color 0.15s, color 0.15s;
+      font-weight: 400;
+    }
+
+    .inline-link:hover {
+      border-bottom-color: #1f3a57;
+      color: #0b1a2b;
+    }
+
+    /* 场景/特点 双列 */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+    }
+
+    .grid-item {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.6rem 1.8rem;
+      border: 1px solid #edf1f6;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.01);
+    }
+
+    .grid-item h3 {
+      font-size: 1.2rem;
+      font-weight: 450;
+      color: #1c2c3d;
+      margin-bottom: 0.5rem;
+    }
+
+    .grid-item p {
+      color: #3a4f62;
+      font-size: 0.96rem;
+    }
+
+    /* FAQ 摘要 */
+    .faq-summary {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2rem 2.2rem;
+      margin-bottom: 1.8rem;
+      border: 1px solid #eef1f5;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .faq-summary h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #1f2e3f;
+      margin-bottom: 1rem;
+    }
+
+    .faq-item {
+      padding: 0.7rem 0;
+      border-bottom: 1px solid #edf0f4;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 450;
+      color: #1f2e3f;
+      margin-bottom: 0.15rem;
+    }
+
+    .faq-a {
+      color: #546a7d;
+      font-size: 0.95rem;
+    }
+
+    /* 页尾 */
+    .footer-note {
+      text-align: center;
+      padding: 2rem 0 0.5rem;
+      border-top: 1px solid #dde3ea;
+      margin-top: 1rem;
+      color: #5d7387;
+      font-size: 0.95rem;
+    }
+
+    .footer-note a {
+      color: #1f2e3f;
+      text-decoration: none;
+      border-bottom: 1px solid #c2cedb;
+    }
+
+    .footer-note a:hover {
+      border-bottom-color: #1f2e3f;
+    }
+
+    /* 响应 */
+    @media (max-width: 700px) {
+      body { padding: 1.2rem 0.8rem; }
+      .hero { padding: 2rem 1.5rem; }
+      .hero h1 { font-size: 2.2rem; }
+      .card { padding: 1.5rem 1.2rem; }
+      .grid-2 { grid-template-columns: 1fr; gap: 1.2rem; }
+      .grid-item { padding: 1.2rem 1.2rem; }
+      .faq-summary { padding: 1.5rem 1.2rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.9rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- 首页横幅 + 背景说明 -->
+    <div class="hero">
+      <h1><strong>爱游戏</strong> · 再访笔记</h1>
+      <div class="sub">这里没有急迫的通知，只有一片熟悉的角落，等你回来时依然安静敞开。</div>
+      <div style="margin-top: 1.2rem; font-size: 0.95rem; color: #536b7f; max-width: 70%;">
+        一次短暂的驻足，一次偶然的发现 —— 而后便是收藏与再访的默契。
+      </div>
+    </div>
+
+    <!-- 三段自然介绍：从再次访问、收藏、持续关注的角度 -->
+    <div class="card">
+      <h2>再次访问 <small>—— 如同推开一扇半掩的门</small></h2>
+      <p>网络上的去处来来往往，大多数页面只打一次照面。但有些地方你会在某个夜晚忽然想起，打开书签，径直走过去。<a href="https://onlineigame.com" class="inline-link">爱游戏</a> 就是这样一个位置 —— 没有闪动的弹窗，没有催促的提醒，界面安静得像一张旧书桌。你回来的时候，它还是上次离开时的样子，甚至更平整了一些。</p>
+      <p class="quiet">你不需要理由，只需要记得来过。再次访问，往往比第一次更自在。</p>
+    </div>
+
+    <div class="card">
+      <h2>收藏 <small>—— 一件顺手的小事</small></h2>
+      <p>收藏夹里塞满了各种网址，但真正会再次点开的，不过十之一二。收藏的行为本身却有一种温柔的暗示：<strong>我愿意为这个地方留一个位置</strong>。把 <a href="https://onlineigame.com" class="inline-link">爱游戏</a> 放进书签，就像在窗台上放一盆绿植 —— 你知道它在那里，不张扬，但每次经过都会看一眼。</p>
+      <p>收藏不是承诺，而是一种可能性的保存。你为自己留下一条可以随时走回去的小路。</p>
+    </div>
+
+    <div class="card">
+      <h2>持续关注 <small>—— 不打扰的陪伴</small></h2>
+      <p>有些网站用推送和红点提醒你它的存在，另一些则选择沉默地更新。<a href="https://onlineigame.com" class="inline-link">爱游戏</a> 更接近后者。它不追求你每天都来，但当你某天心血来潮点开，会发现内容依然新鲜，结构依然熟悉。持续关注不是负担，而是一种低噪的背景音 —— 你想起来的时候，它就在那里。</p>
+      <p>没有订阅的压力，只有偶尔的驻足。这种关系，刚刚好。</p>
+    </div>
+
+    <!-- 双列：场景 + 特点摘要（代替常规特点罗列） -->
+    <div class="grid-2">
+      <div class="grid-item">
+        <h3>一杯茶的间歇</h3>
+        <p>午后或深夜，打开浏览器，在收藏夹里找到那个名字。不需要登录，不需要阅读长篇公告。几页内容，一段浏览，然后心满意足地关掉。这就是 <a href="https://onlineigame.com" class="inline-link">爱游戏</a> 最常见的使用场景 —— 干净、短促、没有后顾之忧。</p>
+      </div>
+      <div class="grid-item">
+        <h3>一种克制的节奏</h3>
+        <p>信息过载的时代里，一个不急于抓住你注意力的页面反而变得珍贵。它用留白和均匀的排版说话，用适中的更新频次维系存在感。你不必担心错过什么，因为重要的东西会在你下次到访时自然出现。</p>
+      </div>
+    </div>
+
+    <!-- FAQ 摘要（克制、叙述感） -->
+    <div class="faq-summary">
+      <h2>一些你可能想问的</h2>
+      <div class="faq-item">
+        <div class="faq-q">「我上次来是什么时候？」</div>
+        <div class="faq-a">浏览器历史记录会帮你回忆，但更重要的是你再次打开了这个页面 —— 这就是全部的意义。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">「需要注册或留下信息吗？」</div>
+        <div class="faq-a">不需要。访问 <a href="https://onlineigame.com" class="inline-link">爱游戏</a> 就像走进一家街角熟店，你随时可以来，随时可以走。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">「内容会一直更新吗？」</div>
+        <div class="faq-a">会缓慢更新，不会每天刷屏。你可以把它看作一本不定期出版的册子，翻开时总有新段落。</div>
+      </div>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="footer-note">
+      <p>如果收藏夹里还没有它，现在也许是个合适的时候。<br>
+      <a href="https://onlineigame.com">爱游戏</a> 一直开着，等你再次路过。</p>
+      <p style="font-size: 0.85rem; margin-top: 0.6rem; color: #7a8fa3;">—— 没有推送，只有偶尔的重逢。</p>
+    </div>
+  </div>
+</body>
+</html>
