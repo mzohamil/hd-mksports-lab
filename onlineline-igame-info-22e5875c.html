@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 简明指南 | 在线游戏平台介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f3f4f6;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1f2937;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .grid-wrapper {
+            max-width: 1120px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* hero 横幅卡片 */
+        .hero-card {
+            background: linear-gradient(145deg, #ffffff, #f9fafb);
+            border: 1px solid #e5e7eb;
+            border-radius: 32px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0,0,0,0.02);
+            padding: 2.8rem 2.2rem;
+            text-align: center;
+            transition: box-shadow 0.15s ease;
+        }
+
+        .hero-card h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            color: #111827;
+        }
+
+        .hero-card h1 span {
+            background: linear-gradient(120deg, #2563eb, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-card .subhead {
+            font-size: 1.15rem;
+            color: #4b5563;
+            max-width: 650px;
+            margin: 0 auto 1.2rem;
+            font-weight: 400;
+        }
+
+        .hero-card .badge {
+            display: inline-block;
+            background: #eef2ff;
+            color: #4338ca;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.25rem 1rem;
+            border-radius: 30px;
+            border: 1px solid #c7d2fe;
+            margin-top: 0.2rem;
+        }
+
+        /* 分区卡片通用 */
+        .section-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 28px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0,0,0,0.03);
+            padding: 2rem 2.2rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .section-card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .section-card h2 {
+            font-size: 1.6rem;
+            font-weight: 550;
+            margin-bottom: 1rem;
+            color: #0f172a;
+            border-left: 4px solid #6366f1;
+            padding-left: 1rem;
+        }
+
+        .section-card p {
+            margin-bottom: 1.1rem;
+            font-size: 1rem;
+            color: #334155;
+        }
+
+        .section-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.2rem 0 0.2rem;
+        }
+
+        .feature-item {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 1rem 1.4rem;
+            border: 1px solid #e9edf2;
+        }
+
+        .feature-item h3 {
+            font-size: 1.1rem;
+            font-weight: 550;
+            margin-bottom: 0.3rem;
+            color: #1e293b;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin-bottom: 0;
+        }
+
+        .faq-mini {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin: 1.5rem 0 0.2rem;
+        }
+
+        .faq-q {
+            background: #f1f5f9;
+            border-radius: 16px;
+            padding: 0.8rem 1.2rem;
+            border-left: 4px solid #94a3b8;
+            font-weight: 500;
+        }
+
+        .faq-q strong {
+            color: #1e293b;
+        }
+
+        .faq-q p {
+            margin: 0.3rem 0 0;
+            font-weight: 400;
+            color: #334155;
+        }
+
+        .notice-box {
+            background: #fef9e7;
+            border: 1px solid #fde68a;
+            border-radius: 18px;
+            padding: 1.2rem 1.6rem;
+            margin: 1.2rem 0 0.2rem;
+            color: #78350f;
+        }
+
+        .link-embed {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dashed #93c5fd;
+            transition: border 0.15s, color 0.15s;
+        }
+
+        .link-embed:hover {
+            color: #1e40af;
+            border-bottom-style: solid;
+        }
+
+        .footer-note {
+            text-align: center;
+            padding: 1.5rem 0.5rem 0.2rem;
+            color: #6b7280;
+            font-size: 0.95rem;
+            border-top: 1px solid #d1d5db;
+            margin-top: 0.5rem;
+        }
+
+        .footer-note a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-note a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 680px) {
+            .hero-card {
+                padding: 2rem 1.2rem;
+            }
+
+            .hero-card h1 {
+                font-size: 2rem;
+            }
+
+            .section-card {
+                padding: 1.6rem 1.2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .faq-q {
+                padding: 0.7rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-wrapper">
+        <!-- 首页横幅 hero -->
+        <div class="hero-card">
+            <h1>简明指南 · <span>爱游戏</span></h1>
+            <p class="subhead">一个以内容实用性与访问体验为优先的在线平台，适用于日常探索与游戏资讯。</p>
+            <div class="badge">🎯 面向好奇玩家 · 知识型参考</div>
+        </div>
+
+        <!-- 背景说明与第一段自然介绍 -->
+        <div class="section-card">
+            <h2>平台背景与定位</h2>
+            <p><a href="https://onlineline-igame.com" class="link-embed">爱游戏</a> 并非一个复杂的游戏门户，而是从信息组织与轻量交互出发，将在线游戏内容以更结构化的方式呈现。许多玩家在寻找新游戏时，常面临信息分散、选择成本高等问题。这一平台尝试将分类、介绍与引导聚合在同一界面，减少跳转与搜索的阻力。</p>
+            <p>从实际使用场景看，它更像一个“起点型”站点——你在这里了解一款游戏的背景、基本玩法或社区讨论方向后，再决定是否进一步深入。这种前置筛选对时间有限的玩家尤为友好。</p>
+        </div>
+
+        <!-- 三段自然介绍之二：特点与具体场景 -->
+        <div class="section-card">
+            <h2>特点与适用场景</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>分类索引</h3>
+                    <p>按类型、风格或主题整理游戏条目，避免杂乱陈列。每个条目附带简明描述，帮助快速判断是否合意。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>轻量化浏览</h3>
+                    <p>页面无过多动态元素与广告干扰，重视内容可读性与加载速度，适合低带宽环境或快速查阅。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>信息参考</h3>
+                    <p>介绍文本以客观描述为主，不过分渲染情绪，适合希望理性了解游戏概况的用户。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>日常使用</h3>
+                    <p>无论是午间休息还是睡前检索，均可以较短时间内浏览多个条目，辅助娱乐决策。</p>
+                </div>
+            </div>
+            <p style="margin-top:1.2rem;">例如，当你想了解某款独立游戏的核心机制，又不想直接进入长篇评测页面时，可以通过 <a href="https://onlineline-igame.com" class="link-embed">爱游戏</a> 获取一段清晰的概述，再判断是否值得投入时间。</p>
+        </div>
+
+        <!-- 第三段自然介绍：访问提醒与注意事项 -->
+        <div class="section-card">
+            <h2>访问提醒与使用建议</h2>
+            <p>由于平台内容由社区或编辑整理，部分条目可能存在时效性差异。建议将 <a href="https://onlineline-igame.com" class="link-embed">爱游戏</a> 作为参考起点，配合官方页面或近期评测交叉验证。特别是对于仍在更新中的游戏，版本号与功能描述可能需二次确认。</p>
+            <div class="notice-box">
+                <strong>📌 温馨提示</strong><br>
+                · 平台未收集任何个人数据，可直接浏览。<br>
+                · 遇到链接失效或内容过时，可通过页面底部反馈渠道告知维护者。<br>
+                · 推荐使用现代浏览器（Chrome、Firefox、Safari 最新版）获得完整样式。
+            </div>
+            <p>此外，部分游戏介绍可能包含外部链接，单击前请留意跳转目标。保持基本的网络安全意识，能够让你的探索更顺畅。</p>
+        </div>
+
+        <!-- FAQ 摘要卡片（保持内容真实，非诱导） -->
+        <div class="section-card">
+            <h2>常见疑问摘要</h2>
+            <div class="faq-mini">
+                <div class="faq-q">
+                    <strong>问：需要注册账户才能浏览吗？</strong>
+                    <p>目前平台不要求注册或登录，所有介绍页面向公开访客开放。</p>
+                </div>
+                <div class="faq-q">
+                    <strong>问：内容更新频率如何？</strong>
+                    <p>通常每月增补新条目或修订既有信息。具体更新时间会标注在页面底部。</p>
+                </div>
+                <div class="faq-q">
+                    <strong>问：是否可以提交游戏推荐？</strong>
+                    <p>平台设有建议入口，提交后由编辑评估是否收录。不保证所有推荐均会展示。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 页尾访问提示 -->
+        <div class="footer-note">
+            <p>若希望进一步了解具体游戏，可直接前往 <a href="https://onlineline-igame.com">爱游戏</a> 浏览分类总览。<br>
+            <span style="font-size:0.9rem; color:#9ca3af;">—— 以简明指南的方式，陪你发现合适的游戏 ——</span></p>
+        </div>
+    </div>
+</body>
+</html>
